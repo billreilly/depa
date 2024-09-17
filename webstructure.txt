@@ -1,0 +1,37 @@
+/project_root
+│       
+        /auth
+                auth.py #controls auth functions
+├── /static                  # For storing static assets (e.g., icons, styles)
+├── /templates               # For HTML templates
+│   └── index.html
+        register.html
+        login.html
+        camera_selection.html
+├── /camera
+│   └── camera.py            # Camera handling logic
+├── /tpu
+│   └── tpu_model.py         # TPU model and interpreter setup
+├── /utils
+│   └── draw.py     
+        noifications.py        # Drawing utilities for keypoints
+        fall_detection.py
+        keypoints.py
+├── app.py                   # Main application file
+├── manifest.json            # Manifest file for PWA
+└── requirements.txt         # List of dependencies
+        models.py 
+
+/project_root
+│
+├── /auth                  # auth folder containing auth.py
+│   └── auth.py            # Authentication logic
+├── /camera
+│   └── camera.py          # Camera handling logic
+├── /tpu
+│   └── tpu_model.py       # TPU model and interpreter setup
+├── /utils
+│   └── draw.py            # Drawing utilities for keypoints
+├── app.py                 # Main application file
+├── manifest.json          # Manifest file for PWA
+└── requirements.txt       # List of dependencies

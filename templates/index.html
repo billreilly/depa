@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Camera Stream</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI Camera">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Camera Stream</h1>
+        <div id="video-container">
+            <!-- Pass camera_id to the video_feed URL -->
+            <img src="{{ url_for('video_feed', camera_id=camera_id) }}">
+        </div>
+        <div id="status">Camera Status: stand</div>
+
+        <div id="controls">
+            <!-- Only Left and Right buttons will work for PTZ -->
+            <button class="ptz-btn" id="left" onclick="customMoveLeft()">←</button>
+            <button class="ptz-btn" id="right" onclick="customMoveRight()">→</button>
+        </div>
+    </div>
+    <!-- Add a button to toggle servo auto-movement -->
+    <button id="toggle-servo-btn" onclick="toggleServo()">Toggle Servo Auto-Movement</button>
+
+    <script>
+        function toggleServo() {
+            // Send a request to the server to toggle the auto servo movement
+            fetch('/toggle_servo', {
+                method: 'POST'
+            }).then(response => response.json())
+            .then(data => {
+                alert(data.message);  // Display the response message
+            });
+        }
+        function customMoveLeft() {
+        // Send a request to custom move the servo left
+        fetch('/custom_move_left', {
+            method: 'POST'
+        }).then(response => response.json())
+        .then(data => {
+            alert(data.message);  // Display the response message
+        });
+    }
+
+    function customMoveRight() {
+        // Send a request to custom move the servo right
+        fetch('/custom_move_right', {
+            method: 'POST'
+        }).then(response => response.json())
+        .then(data => {
+            alert(data.message);  // Display the response message
+        });
+    }
+
+    </script>
+</body>
+</html>
+
