@@ -1,0 +1,2 @@
+coral_env/lib/python3.11/site-packages/jaxlib/mlir/_mlir_libs/libjaxlib_mlir_capi.so filter=lfs diff=lfs merge=lfs -text
+coral_env/lib/python3.11/site-packages/jaxlib/xla_extension.so filter=lfs diff=lfs merge=lfs -text
